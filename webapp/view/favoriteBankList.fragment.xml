@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog title="Favorites" contentWidth="95%">
+		<!-- ({= ${oAppModel>/favorites}.length})-->
+		<Table items="{oAppModel>/favorites}" sticky="HeaderToolbar" class="bankListTableStyle">
+			<columns>
+				<Column>
+					<Text text="Favorite"/>
+				</Column>
+				<Column>
+					<Text text="Bank ID"/>
+				</Column>
+				<Column>
+					<Text text="Branch"/>
+				</Column>
+				<Column>
+					<Text text="Bank Name"/>
+				</Column>
+				<Column>
+					<Text text="IFSC"/>
+				</Column>
+				<Column>
+					<Text text="Address"/>
+				</Column>
+				<Column>
+					<Text text="City"/>
+				</Column>
+				<Column>
+					<Text text="District"/>
+				</Column>
+				<Column>
+					<Text text="State"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Active" press="onClickBank">
+					<Button icon="{= ${oAppModel>isFav} === true ? 'sap-icon://favorite' : 'sap-icon://unfavorite'}" press="onPressFavorite" type="Transparent"/>
+					<Text text="{oAppModel>bank_id}"/>
+					<Text text="{oAppModel>branch}"/>
+					<Text text="{oAppModel>bank_name}"/>
+					<Text text="{oAppModel>ifsc}"/>
+					<Text text="{oAppModel>address}"/>
+					<Text text="{oAppModel>city}"/>
+					<Text text="{oAppModel>district}"/>
+					<Text text="{oAppModel>state}"/>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button text="Close" press="onCloseFavs"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

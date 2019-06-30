@@ -1,0 +1,90 @@
+<mvc:View controllerName="kiruthika.banksearch.com.BankSearch.controller.main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<App id="app">
+		<pages>
+			<Page title="Bank List">
+				<content>
+					<Table items="{oAppModel>/currentList}" sticky="HeaderToolbar" class="bankListTableStyle">
+						<headerToolbar>
+							<Toolbar>
+								<Select selectedKey="{oAppModel>/selectedCity}" change="changeCity">
+									<core:Item text="Mumbai" key="MUMBAI"></core:Item>
+									<core:Item text="Hyderabad" key="HYDERABAD"></core:Item>
+									<core:Item text="Bangalore" key="BANGALORE"></core:Item>
+									<core:Item text="Chennai" key="CHENNAI"></core:Item>
+									<core:Item text="Delhi" key="DELHI"></core:Item>
+								</Select>
+								<ToolbarSpacer/>
+								<SearchField search="filterBanks" value="{oAppModel>/searchValue}"/>
+								<Button text="View Favorites" press="onViewFavs"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Favorite"/>
+							</Column>
+							<Column>
+								<Text text="Bank ID"/>
+							</Column>
+							<Column>
+								<Text text="Branch"/>
+							</Column>
+							<Column>
+								<Text text="Bank Name"/>
+							</Column>
+							<Column>
+								<Text text="IFSC"/>
+							</Column>
+							<Column>
+								<Text text="Address"/>
+							</Column>
+							<Column>
+								<Text text="City"/>
+							</Column>
+							<Column>
+								<Text text="District"/>
+							</Column>
+							<Column>
+								<Text text="State"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active" press="onClickBank">
+								<Button icon="{= ${oAppModel>isFav} === true ? 'sap-icon://favorite' : 'sap-icon://unfavorite'}" 
+									press="onPressFavorite" type="Transparent"/>
+								<Text text="{oAppModel>bank_id}"/>
+								<Text text="{oAppModel>branch}"/>
+								<Text text="{oAppModel>bank_name}"/>
+								<Text text="{oAppModel>ifsc}"/>
+								<Text text="{oAppModel>address}"/>
+								<Text text="{oAppModel>city}"/>
+								<Text text="{oAppModel>district}"/>
+								<Text text="{oAppModel>state}"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<VBox justifyContent="Center" alignItems="Center" class="footerStyle">
+						<HBox class="sapUiSizeCompact" alignItems="Center" justifyContent="Center" renderType="Bare">
+							<Button icon="sap-icon://close-command-field" press="onClickPrev"
+								type="Transparent" enabled="{= ${oAppModel>/currPage} &gt; 1}" class="sapUiTinyMarginEnd"/>
+							<Label text="Page : " class="sapUiTinyMarginEnd"/>
+							<Input value="{oAppModel>/goToPage}" change="onChangePage" submit="onChangePage" width="5rem" class="sapUiTinyMarginEnd"/>
+							<Label text=" / {oAppModel>/totalPages}" class="sapUiTinyMarginEnd"/>
+							<Button icon="sap-icon://open-command-field" press="onClickNext"
+								type="Transparent" enabled="{= ${oAppModel>/currPage} &lt; ${oAppModel>/totalPages}}"/>
+						</HBox>
+						<!--<HBox class="sapUiSizeCompact" alignItems="Center">-->
+						<!--	<Text text="Go to page:"/>-->
+						<!--	<Input value="{oAppModel>/goToPage}"/>-->
+						<!--	<Button text="Go" press="onChangePage"/>-->
+						<!--</HBox>-->
+						<HBox class="sapUiSizeCompact sapUiTinyMarginTop" alignItems="Center">
+							<Input value="{oAppModel>/pageSize}" change="onChangePageSize" submit="onChangePageSize" width="5rem" class="sapUiTinyMarginEnd"/>
+							<Text text="entries per page"/>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

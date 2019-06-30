@@ -1,0 +1,35 @@
+.sapMSFF, 
+.sapMSlt,
+.sapMInputBaseContentWrapper{
+	border-radius: 5px;
+	border: 1px solid #d4d4d4;
+}
+
+.sapMListTblHeader>.sapMTableTH {
+    background: #fef0ff;
+}
+
+.sapMIBar.sapMHeader-CTX,
+.sapMDialog.sapMPopup-CTX>header .sapMHeader-CTX{
+    background-color: #deccdb;
+}
+
+.sapMBar,
+.sapMDialog:not(.sapMDialogWithSubHeader)>header>.sapMIBar, 
+.sapMDialog>header:last-of-type .sapMIBar{
+    box-shadow: inset 0 -0.0625rem #deccdb;
+}
+
+.sapMSticky>.sapMListHdrTBar.sapMTB-Transparent-CTX{
+    background: #f2deef;
+}
+
+.footerStyle {
+	padding-top: 0.5rem;
+    background: #f2deef;
+}
+
+.sapMColumnHeader>.sapMText{
+	font-weight: 600;
+}
+

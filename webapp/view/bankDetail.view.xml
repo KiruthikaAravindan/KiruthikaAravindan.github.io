@@ -1,0 +1,21 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="kiruthika.banksearch.com.BankSearch.controller.bankDetail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Bank Details" showNavButton="true" navButtonPress="onPressBack">
+				<content>
+					<VBox justifyContent="Center" alignItems="Center" width="100%">
+						<HBox>
+							<Label text="Bank Name:" class="sapUiTinyMargin"/>
+							<Text text="{bankDetailModel>/bankDetails/bank_name}" class="sapUiTinyMargin"/>
+						</HBox>
+						<HBox>
+							<Label text="Bank ID:" class="sapUiTinyMargin"/>
+							<Text text="{bankDetailModel>/bankDetails/bank_id}" class="sapUiTinyMargin"/>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

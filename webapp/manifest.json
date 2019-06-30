@@ -1,0 +1,111 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "kiruthika.banksearch.com.BankSearch",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "kiruthika.banksearch.com.BankSearch.view.main",
+			"type": "XML",
+			"async": true,
+			"id": "main"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "kiruthika.banksearch.com.BankSearch.i18n.i18n"
+				}
+			},
+			"bankDetailModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "kiruthika.banksearch.com.BankSearch.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Routemain",
+					"pattern": "Routemain",
+					"target": [
+						"Targetmain"
+					]
+				},
+				{
+					"name": "bankDetail",
+					"pattern": "banks/{ContextPath}",
+					"target": [
+						"bankDetail"
+					]
+				}
+			],
+			"targets": {
+				"Targetmain": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": true,
+					"viewName": "main"
+				},
+				"bankDetail": {
+					"viewType": "XML",
+					"viewName": "bankDetail"
+				}
+			}
+		}
+	}
+}
